@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h2>./worklinks</h2>
+        <label>
+            <input ng-keydown="keyPress($event)" ng-model="search" ng-change="filterLinks(search)" ng-init="initLinks()"></input>
+        </label>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <a ng-repeat='link in filteredLinks' class='list-group-item' ng-class="link == activeLink ? 'active' : ''" tabindex="{{link == activeLink ? '0' : '-1'}}" ng-href="{{link.type=='url' ? link.value : '' | cleanLink}}" id="{{'linkIndex'+$index}}" target="_blank" ng-click="performAction(link)">
+                <span class='list-group-item-heading'>
+                    <h4 ng-bind-html='link.name|sanitize'></h4>
+                    <span class='category' ng-repeat='category in link.categories' ng-bind-html='category|sanitize'></span>
+                   <div ng-if="link.ajaxResult" class="pull-right ajax-message {{link.ajaxResult}}">
+                        <span class="glyphicon" ng-class="link.ajaxResult == 'success' ? 'glyphicon-ok' : 'glyphicon-remove'" aria-hidden="true"></span>
+                        <span ng-if="link.ajaxResult=='success'" class='text'>cache cleared</span>
+                        <span ng-if="link.ajaxResult=='failure'" class='text'>service call failure</span>
+                    </div>
+                </span>
+                <p class='list-group-item-text'>
+                    <span ng-bind-html='link.value|splitArray|sanitize'></span>
+                </p>
+            </a>
+        </div>
+    </div>
+</div>

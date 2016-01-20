@@ -1,0 +1,56 @@
+@import url("./bower_components/bootstrap/dist/css/bootstrap.min.css");
+@import url("./bower_components/fontawesome/css/font-awesome.min.css");
+
+body {
+	background-color: #EBEBEB;
+	margin-top: 50px;
+	font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    overflow-y: scroll;
+}
+h4 {
+	margin: 0px 5px 0 0;
+}
+a[ng-click]{
+    cursor: pointer;
+}
+.category {
+	font-size: 13px;
+}
+.panel-heading {
+	background-color: #eee;
+}
+.panel-body {
+	height: auto;
+	padding: 0;
+    overflow-y: scroll;
+    max-height: 528px;
+}
+.list-group-item-heading h4 {
+	display: inline-block;
+}
+.list-group-item-text{
+	margin-top:2px;
+}
+.list-group {
+	margin-bottom: 0px;
+}
+.list-group a {
+    word-wrap: break-word;
+}
+.ajax-message {
+	display: inline-block;
+}
+.ajax-message .text {
+	font-size: 14px;
+	font-weight: 600;	
+}
+.ajax-message.success {
+	color: lightgreen;
+}
+.ajax-message.failure {
+	color: #A20000;
+}
+.ajax-message .glyphicon{
+	font-size: 12px;
+}
