@@ -1,5 +1,5 @@
 {
-  "name": "angular-gulp-browserify-starter",
+  "name": "default",
   "version": "0.0.1",
   "description": "Angular starter featuring Gulp, Bower, and Browserify",
   "main": "gulpfile.js",
@@ -17,6 +17,7 @@
     "browser-sync": "2.8.2",
     "browserify": "^5.10.0",
     "express": "~4.7.2",
+    "font-awesome": "github:fortawesome/Font-Awesome",
     "fuzzy": "^0.1.1",
     "gulp": "^3.8.7",
     "gulp-browserify": "^0.5.0",
@@ -25,10 +26,19 @@
     "gulp-jshint": "^1.8.4",
     "gulp-minify-css": "^0.3.7",
     "gulp-uglify": "^0.3.1",
+    "jquery": "^2.2.1",
     "method-override": "~2.1.2",
     "mongoose": "~3.6.2",
     "morgan": "~1.2.2",
     "run-sequence": "^1.1.2"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erberg/quickLinks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/erberg/quickLinks/issues"
+  },
+  "homepage": "https://github.com/erberg/quickLinks#readme"
 }

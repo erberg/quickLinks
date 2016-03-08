@@ -13,19 +13,6 @@ var browserify = require('gulp-browserify');
 var concat = require('gulp-concat');
 var runSequence = require('run-sequence');
 
-// tasks
-gulp.task('lint', function() {
-  gulp.src(['./app/**/*.js', '!./app/bower_components/**', '!./**/bundled.js'])
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'))
-    .pipe(jshint.reporter('fail'));
-});
-
-gulp.task('cleanDist', function() {
-    gulp.src('./dist/*')
-      .pipe(clean({force: true}));
-});
-
 gulp.task('clean', function() {
     gulp.src('./dist/*')
       .pipe(clean({force: true}));
@@ -49,14 +36,14 @@ gulp.task('minify-js', function() {
     .pipe(gulp.dest('./app'))
 });
 
-gulp.task('copy-bower-components', function () {
-  gulp.src(['./app/bower_components/**/*.min.js','./app/bower_components/**/*.min.css'])
-    .pipe(gulp.dest('dist/bower_components'));
-});
-
 gulp.task('copy-html-files', function () {
   gulp.src('./app/**/*.html')
     .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('copy-npm-components', function () {
+  gulp.src(['./node_modules/**/*.min.js','./node_modules/**/*.min.css'])
+    .pipe(gulp.dest('app/node_modules'));
 });
 
 gulp.task('buildDev', function() {
@@ -82,7 +69,6 @@ gulp.task('buildDev', function() {
 
 // use default task to launch Browsersync and watch JS files
 gulp.task('serveDev', function () {
-    // Serve files from the app folder of this project
     browserSync.init({
         open: false,
         server: {
@@ -91,23 +77,13 @@ gulp.task('serveDev', function () {
     });
 });
 
-// gulp.task('serveDist', function () {
-//     // Serve files from the app folder of this project
-//     browserSync.init({
-//         open: false,
-//         server: {
-//           baseDir: "./dist/"
-//         }
-//     });
-// });
-
 gulp.watch(['./app/**/*.html'], reload);
 gulp.watch(['./app/css/**/*.{scss,css}'], reload);
 gulp.watch(['./app/js/**/*.js', '!./app/js/**/bundled.js'], ['clean', 'buildDev']);
 
 // default task
 gulp.task('default',
-  ['clean', 'buildDev', 'serveDev']
+  ['clean','buildDev', 'serveDev', 'copy-npm-components']
 );
 
 // build task
