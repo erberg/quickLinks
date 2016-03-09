@@ -16,7 +16,6 @@
     "bootstrap": "^3.3.6",
     "browser-sync": "2.8.2",
     "express": "~4.7.2",
-    "font-awesome": "github:fortawesome/Font-Awesome",
     "fuzzy": "^0.1.1",
     "gulp": "^3.8.7",
     "gulp-browserify": "^0.5.0",
