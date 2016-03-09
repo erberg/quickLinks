@@ -42,7 +42,7 @@ window.$ = window.jQuery = require('jquery');
           var query = query || '';
           if (!promise) {
               // $http returns a promise, which has a then function, which also returns a promise
-              promise = $http.get('http://home:8080/api/links').then(function(response) {
+              promise = $http.get('http://192.168.33.10:8080/api/links').then(function(response) {
                   // The then function here is an opportunity to modify the response.
                   // The return value gets picked up by the then in the controller.
                   return response.data;

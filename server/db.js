@@ -23,7 +23,17 @@ app.use(function(req, res, next) {
 
 app.listen(8080);
 
-app.use('/worklinks', express.static('/var/www/public/links/app/'));
+app.use('/scotchbox', express.static('/var/www/public/links/app/'));
+
+/**
+ *	Expected data format:
+ *	[{
+ *		type: "url2", 
+ *		value:"valuetest2", 
+ *		name:"nametest2", 
+ *		categories: ['one','two']
+ *	}]
+ */
 
 app.get('/api/links', function(req, res) {
 	MongoClient.connect(databaseURI, function(err, db) {
@@ -45,5 +55,3 @@ app.get('/api/link/:link_id', function(req, res) {
 	    });
 	});
 });
-
-// module.exports = db;
