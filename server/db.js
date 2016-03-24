@@ -1,4 +1,4 @@
-var databaseURI = "mongodb://localhost:27017/scotchbox";
+var databaseURI = "mongodb://localhost:27017/quicklinks";
 
 var MongoClient = require("mongodb").MongoClient,
     assert = require('assert'),
@@ -23,7 +23,7 @@ app.use(function(req, res, next) {
 
 app.listen(8080);
 
-app.use('/scotchbox', express.static('/var/www/public/links/app/'));
+app.use('/quicklinks', express.static('/var/www/public/links/app/'));
 
 /**
  *	Expected data format:

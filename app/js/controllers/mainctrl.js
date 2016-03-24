@@ -101,11 +101,6 @@ module.exports = function($scope, $http, linkFactory, $anchorScroll) {
     $('input').focus();
   };
   
-  /**
-   * Would be more useful if this was generic and set a temp variable with response data as well.
-   * @param  {[type]} urlArray [description]
-   * @return {[type]}          [description]
-   */
   var getService = function (urlArray) {
     if(urlArray.length){
       $http.get(urlArray.pop()).then(function () {
