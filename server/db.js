@@ -21,7 +21,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.listen(8080);
+app.listen(8081);
 
 app.use('/quicklinks', express.static('/var/www/public/links/app/'));
 

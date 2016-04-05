@@ -36,13 +36,14 @@ window.$ = window.jQuery = require('jquery');
 
   .factory('linkFactory', function($http) {
   var promise;
-
+  var originWithoutPort = document.location.origin.split(':').slice(0,-1).join(':');
   var AllLinks = {
       async: function(query) {
+        console.log('')
           var query = query || '';
           if (!promise) {
               // $http returns a promise, which has a then function, which also returns a promise
-              promise = $http.get('http://192.168.33.10:8080/api/links').then(function(response) {
+              promise = $http.get(originWithoutPort + ':8081/api/links').then(function(response) {
                   // The then function here is an opportunity to modify the response.
                   // The return value gets picked up by the then in the controller.
                   return response.data;
